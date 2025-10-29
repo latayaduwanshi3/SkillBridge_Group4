@@ -30,7 +30,7 @@ function EditProfile() {
         const decoded = jwtDecode(token);
         setUserRole(decoded.user.role);
 
-        const res = await axios.get("http://localhost:5000/api/auth/me", {
+        const res = await axios.get("/api/auth/me", {
           headers: { "x-auth-token": token },
         });
 
@@ -72,7 +72,7 @@ function EditProfile() {
         updatedData.skills = updatedData.skills.split(",").map(skill => skill.trim());
       }
 
-      await axios.put(`http://localhost:5000/api/auth/profile/${userId}`, updatedData, {
+      await axios.put(`/api/auth/profile/${userId}`, updatedData, {
         headers: { "x-auth-token": token },
       });
 

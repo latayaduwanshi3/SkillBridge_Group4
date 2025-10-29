@@ -27,12 +27,12 @@ function Dashboard() {
           return;
         }
 
-        const userRes = await axios.get("http://localhost:5000/api/auth/me", {
+        const userRes = await axios.get("/api/auth/me", {
           headers: { "x-auth-token": token },
         });
         setUser(userRes.data.user);
 
-        const oppRes = await axios.get("http://localhost:5000/api/opportunities");
+        const oppRes = await axios.get("/api/opportunities");
         setOpportunities(oppRes.data);
 
         setLoading(false);
@@ -54,7 +54,7 @@ function Dashboard() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/opportunities/apply",
+        "/api/opportunities/apply",
         { opportunityId },
         { headers: { "x-auth-token": token } }
       );

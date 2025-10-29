@@ -23,7 +23,7 @@ function Opportunities() {
         setUserRole(decoded.user.role);
 
         if (decoded.user.role === 'ngo') {
-            const res = await axios.get(`http://localhost:5000/api/opportunities/ngo`, {
+            const res = await axios.get(`/api/opportunities/ngo`, {
                 headers: { "x-auth-token": token },
             });
             setOpportunities(res.data);

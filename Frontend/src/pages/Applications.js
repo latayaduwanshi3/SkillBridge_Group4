@@ -24,14 +24,14 @@ function Applications() {
         let res;
         if (decoded.user.role === "ngo") {
           res = await axios.get(
-            "http://localhost:5000/api/opportunities/applications/ngo",
+            "/api/opportunities/applications/ngo",
             {
               headers: { "x-auth-token": token },
             }
           );
         } else {
           res = await axios.get(
-            "http://localhost:5000/api/opportunities/applications/me",
+            "/api/opportunities/applications/me",
             {
               headers: { "x-auth-token": token },
             }
@@ -52,7 +52,7 @@ function Applications() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/opportunities/applications/${appId}/status`,
+        `/api/opportunities/applications/${appId}/status`,
         { status: newStatus },
         { headers: { "x-auth-token": token } }
       );

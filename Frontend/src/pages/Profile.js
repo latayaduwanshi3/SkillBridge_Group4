@@ -14,7 +14,7 @@ function Profile() {
           setLoading(false);
           return;
         }
-        const res = await axios.get("http://localhost:5000/api/auth/me", {
+        const res = await axios.get("/api/auth/me", {
           headers: { "x-auth-token": token },
         });
         setUser(res.data.user);
@@ -37,7 +37,7 @@ function Profile() {
 
       // The URL for the PUT request needs to include the user ID
       const res = await axios.put(
-        `http://localhost:5000/api/auth/profile/${user.id}`, // ✅ Corrected URL
+        `/api/auth/profile/${user.id}`, // ✅ Corrected URL
         user, // ✅ Send the entire user object
         { headers: { "x-auth-token": token } }
       );

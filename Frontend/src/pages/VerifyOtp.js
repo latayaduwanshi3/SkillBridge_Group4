@@ -33,7 +33,7 @@ function VerifyOtp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", { email, otp });
+      const res = await axios.post("/api/auth/verify-otp", { email, otp });
       setMessage(res.data.msg);
       alert("OTP verified! You can now reset your password.");
       navigate("/reset-password", { state: { email } }); // redirect to reset password page

@@ -31,7 +31,7 @@ const CreateOpportunity = () => {
       };
 
       await axios.post(
-        "http://localhost:5000/api/opportunities/create",
+        "/api/opportunities/create",
         opportunityData,
         {
           headers: {

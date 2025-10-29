@@ -19,7 +19,7 @@ function EditOpportunity() {
   useEffect(() => {
     const fetchOpportunity = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/opportunities/${id}`);
+        const res = await axios.get(`/api/opportunities/${id}`);
         const opp = res.data;
         setFormData({
           title: opp.title,
@@ -54,7 +54,7 @@ function EditOpportunity() {
       };
 
       await axios.put(
-        `http://localhost:5000/api/opportunities/${id}/edit`,
+        `/api/opportunities/${id}/edit`,
         opportunityData,
         {
           headers: {
